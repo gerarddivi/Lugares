@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D55C31C41DA543F0009A81A9 /* AddPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55C31C31DA543F0009A81A9 /* AddPlaceViewController.swift */; };
+		D55C31C71DA55B26009A81A9 /* Places.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D55C31C51DA55B26009A81A9 /* Places.xcdatamodeld */; };
 		D5A600031DA3C03B00F4DB6A /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A600021DA3C03B00F4DB6A /* PlaceCell.swift */; };
 		D5A600071DA3C08800F4DB6A /* PlaceDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A600041DA3C08800F4DB6A /* PlaceDetailViewCell.swift */; };
 		D5A600081DA3C08800F4DB6A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A600051DA3C08800F4DB6A /* DetailViewController.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D55C31C31DA543F0009A81A9 /* AddPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddPlaceViewController.swift; path = ../AddPlaceViewController.swift; sourceTree = "<group>"; };
+		D55C31C61DA55B26009A81A9 /* Places.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Places.xcdatamodel; sourceTree = "<group>"; };
 		D5A600021DA3C03B00F4DB6A /* PlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceCell.swift; path = ../PlaceCell.swift; sourceTree = "<group>"; };
 		D5A600041DA3C08800F4DB6A /* PlaceDetailViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewCell.swift; sourceTree = "<group>"; };
 		D5A600051DA3C08800F4DB6A /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -72,13 +76,15 @@
 			children = (
 				D5A6FFF01DA3BEC800F4DB6A /* AppDelegate.swift */,
 				D5A6FFF21DA3BEC800F4DB6A /* ViewController.swift */,
-				D5A600051DA3C08800F4DB6A /* DetailViewController.swift */,
-				D5A600061DA3C08800F4DB6A /* ReviewViewController.swift */,
-				D5A6FFF41DA3BEC800F4DB6A /* Main.storyboard */,
-				D5C356811DA3F7C1007C2814 /* MapViewController.swift */,
-				D5A600041DA3C08800F4DB6A /* PlaceDetailViewCell.swift */,
 				D5A600021DA3C03B00F4DB6A /* PlaceCell.swift */,
 				D5A6000A1DA3C12300F4DB6A /* Place.swift */,
+				D5A600051DA3C08800F4DB6A /* DetailViewController.swift */,
+				D5A600041DA3C08800F4DB6A /* PlaceDetailViewCell.swift */,
+				D5A600061DA3C08800F4DB6A /* ReviewViewController.swift */,
+				D5C356811DA3F7C1007C2814 /* MapViewController.swift */,
+				D55C31C31DA543F0009A81A9 /* AddPlaceViewController.swift */,
+				D55C31C51DA55B26009A81A9 /* Places.xcdatamodeld */,
+				D5A6FFF41DA3BEC800F4DB6A /* Main.storyboard */,
 				D5A6FFF71DA3BEC800F4DB6A /* Assets.xcassets */,
 				D5A6FFF91DA3BEC800F4DB6A /* LaunchScreen.storyboard */,
 				D5A6FFFC1DA3BEC800F4DB6A /* Info.plist */,
@@ -173,8 +179,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5A6FFF31DA3BEC800F4DB6A /* ViewController.swift in Sources */,
+				D55C31C71DA55B26009A81A9 /* Places.xcdatamodeld in Sources */,
 				D5A6FFF11DA3BEC800F4DB6A /* AppDelegate.swift in Sources */,
 				D5A600091DA3C08800F4DB6A /* ReviewViewController.swift in Sources */,
+				D55C31C41DA543F0009A81A9 /* AddPlaceViewController.swift in Sources */,
 				D5A600081DA3C08800F4DB6A /* DetailViewController.swift in Sources */,
 				D5A600031DA3C03B00F4DB6A /* PlaceCell.swift in Sources */,
 				D5A6000B1DA3C12300F4DB6A /* Place.swift in Sources */,
@@ -346,6 +354,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D55C31C51DA55B26009A81A9 /* Places.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D55C31C61DA55B26009A81A9 /* Places.xcdatamodel */,
+			);
+			currentVersion = D55C31C61DA55B26009A81A9 /* Places.xcdatamodel */;
+			path = Places.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D5A6FFE51DA3BEC800F4DB6A /* Project object */;
 }

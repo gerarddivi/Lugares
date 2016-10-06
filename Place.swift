@@ -8,24 +8,25 @@
 
 import Foundation
 import UIKit
+import CoreData
 
-class Place {
+class Place: NSManagedObject {
     
-    var name = ""
-    var type = ""
-    var location = ""
-    var image: UIImage!
-    var rating = "rating"
-    var telephoneNumber = ""
-    var web = ""
+    @NSManaged var name: String
+    @NSManaged var type: String
+    @NSManaged var location: String
+    @NSManaged var image: NSData?
+    @NSManaged var rating: String?
+    @NSManaged var telephoneNumber: String?
+    @NSManaged var web: String?
     
     
-    init(name: String, type: String, location: String, image: UIImage, telephoneNumber: String, web: String) {
-        self.name = name
-        self.type = type
-        self.location = location
-        self.image = image
-        self.telephoneNumber = telephoneNumber
-        self.web = web
-    }
+//    init(name: String, type: String, location: String, image: UIImage, telephoneNumber: String, web: String) {
+//        self.name = name
+//        self.type = type
+//        self.location = location
+//        self.image = image
+//        self.telephoneNumber = telephoneNumber
+//        self.web = web
+//    }
 }

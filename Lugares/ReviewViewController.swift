@@ -75,20 +75,16 @@ class ReviewViewController: UIViewController {
             let okButton = UIAlertAction(title: "Ok", style: .default, handler: { (UIAlertAction) in
                 self.performSegue(withIdentifier: "unwindToDetailView", sender: sender)
             })
-            let cancelButton = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
             present(alert, animated: true, completion: nil)
             alert.addAction(okButton)
-            alert.addAction(cancelButton)
         case 2:
             ratingSelected = "good"
             let alert = UIAlertController(title: "Bien!", message: "Te ha gustado! Bien!", preferredStyle: .alert)
             let okButton = UIAlertAction(title: "Ok", style: .default, handler: { (UIAlertAction) in
                 self.performSegue(withIdentifier: "unwindToDetailView", sender: sender)
             })
-            let cancelButton = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
             present(alert, animated: true, completion: nil)
             alert.addAction(okButton)
-            alert.addAction(cancelButton)
 
         case 3:
             ratingSelected = "great"
@@ -96,10 +92,8 @@ class ReviewViewController: UIViewController {
             let okButton = UIAlertAction(title: "Ok", style: .default, handler: { (UIAlertAction) in
                 self.performSegue(withIdentifier: "unwindToDetailView", sender: sender)
             })
-            let cancelButton = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
             present(alert, animated: true, completion: nil)
             alert.addAction(okButton)
-            alert.addAction(cancelButton)
 
         default:
             break

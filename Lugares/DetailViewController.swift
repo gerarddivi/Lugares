@@ -31,7 +31,7 @@ class DetailViewController: UIViewController {
         
         self.title = place.name
 
-        self.placeImageView.image = self.place.image
+        self.placeImageView.image = UIImage(data: place.image! as Data)
         self.placeImageView.layer.borderColor = UIColor.darkGray.cgColor
         self.placeImageView.layer.borderWidth = 2
         self.placeImageView.layer.cornerRadius = 0
@@ -49,9 +49,26 @@ class DetailViewController: UIViewController {
         self.tableViewDetail.estimatedRowHeight = 30
         self.tableViewDetail.rowHeight = UITableViewAutomaticDimension
         
-        self.ratingButton.setImage(UIImage(named: self.place.rating), for: .normal)
+        self.ratingButton.setImage(UIImage(named: self.place.rating!), for: .normal)
 
     }
+    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMap" {
+            let destination = segue.destination as! MapViewController
+            destination.place = self.place
+        }
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.hidesBarsOnSwipe = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     
     @IBAction func close(segue: UIStoryboardSegue) {
         
@@ -59,34 +76,18 @@ class DetailViewController: UIViewController {
             
             if let rating = reviewVC.ratingSelected {
                 self.place.rating = rating
-                self.ratingButton.setImage(UIImage(named: self.place.rating), for: .normal)
+                self.ratingButton.setImage(UIImage(named: self.place.rating!), for: .normal)
+                
+                if let container = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer {
+                    let context = container.viewContext
+                    do {
+                        try context.save()
+                    } catch {
+                        print("Error: \(error)")
+                    }
+                }
             }
-            
         }
-    }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showMap" {
-            if let destination = segue.destination as? MapViewController {
-                destination.place = self.place
-            }
-            
-        }
-        
-    }
-//    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "showMap" {
-//            let destinationViewController = segue.destinationViewController as! MapViewController
-//            destinationViewController.place = self.place
-//        }
-//    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        navigationController?.hidesBarsOnSwipe = false
-        navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -104,7 +105,6 @@ class DetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
 
 extension DetailViewController: UITableViewDataSource {
@@ -143,37 +143,16 @@ extension DetailViewController: UITableViewDataSource {
         default:
             break
         }
-
-    
+      
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        
-//        var title = ""
-//        
-//        switch section {
-//        case 0:
-//            title = "Nombre"
-//        case 1:
-//            title = "Tiempo"
-//        case 2:
-//            title = "Ingredientes"
-//        case 3:
-//            title = "Pasos a seguir"
-//        default:
-//            break
-//        }
-//        return title
-//        }
-    }
+}
 
 
-extension DetailViewController: UITableViewDelegate {
-    
+extension DetailViewController:  UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        switch indexPath.row {
+        switch indexPath.section {
         case 2:
             //Hemos seleccionado la geolocalización
             self.performSegue(withIdentifier: "showMap", sender: nil)
@@ -181,7 +160,7 @@ extension DetailViewController: UITableViewDelegate {
             break
         }
     }
-    
 }
+
 
 
